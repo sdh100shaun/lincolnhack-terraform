@@ -1,5 +1,0 @@
-live-config.tfvars
-*.tfplan
-.terraform
-.idea
-*.tfstate*
