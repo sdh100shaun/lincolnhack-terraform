@@ -4,7 +4,7 @@ resource "digitalocean_tag" "web" {
 
 resource "digitalocean_droplet" "lincolnhack" {
   name               = "lincolnhack"
-  size               = "1gb"
+  size               = "2gb"
   image              = "centos-7-x64"
   region             = "lon1"
   ipv6               = true
@@ -63,6 +63,11 @@ resource "digitalocean_firewall" "lincolnhack" {
     },
     {
       protocol                = "tcp"
+      port_range              = "53"
+      destination_addresses   = ["0.0.0.0/0", "::/0"]
+    },
+    {
+      protocol                = "tcp"
       port_range              = "80"
       destination_addresses   = ["0.0.0.0/0", "::/0"]
     },
@@ -71,5 +76,12 @@ resource "digitalocean_firewall" "lincolnhack" {
       port_range              = "53"
       destination_addresses   = ["0.0.0.0/0", "::/0"]
     },
+    {
+      protocol = "tcp"
+      port_range ="45369"
+      destination_addresses   = ["108.59.83.241"]
+
+    }
+
   ]
 }

@@ -3,3 +3,4 @@ live-config.tfvars
 .terraform
 .idea
 *.tfstate*
+tfplan
